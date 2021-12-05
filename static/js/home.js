@@ -1,5 +1,6 @@
-const racer_data = async () => {
+const racer_data = async (event) => {
     // get the season and round
+    event.preventDefault()
     let season = document.querySelector('#season').value
     let round = document.querySelector('#round').value
     
