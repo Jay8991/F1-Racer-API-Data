@@ -1,10 +1,11 @@
+// getting key which is in key.js file since sensitive data
+import key from './key.js' 
+
 const weather_data = async (event) => {
     // get the season and round
     event.preventDefault()
     let city = document.querySelector('#city').value
-    let apiKey = '9477e778ab583260b4857dc0f5caca14'
-    
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key()}`
     // get request 
     let response = await axios.get(url);
 
@@ -22,7 +23,7 @@ function getWeather(res){
     let low = Math.round(convertToF(res.data.main.temp_min))
     let forcast = res.data.clouds.all
     let humidity = res.data.main.humidity
-    
+
     // change background based on the temp
     if(low >= 80){
         // hot
